@@ -1,0 +1,1997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AZ | Design • Experience • Impact</title>
+    <!-- Premium Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&family=Poiret+One&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="C:\Users\AZ\OneDrive\Desktop\AZ Website\pictures\AZ_logo.png">
+    <style>
+        :root {
+            --bg-black: #050505;
+            --rose-gold: linear-gradient(135deg, #e4c49d 0%, #c69c72 50%, #99714e 100%);
+            --gold-solid: #c69c72;
+            --text-light: #ffffff;
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-black);
+            color: var(--text-light);
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(5, 5, 5, 0.8);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .nav-logo-text {
+            font-family: 'Poiret One', cursive;
+            font-size: 1.8rem;
+            letter-spacing: 4px;
+            display: inline-block;
+            background: var(--rose-gold);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .nav-links { display: flex; list-style: none; }
+        .nav-links li { margin-left: 35px; }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+        .nav-links a:hover { color: var(--gold-solid); opacity: 0.8; }
+
+        /* --- Hero Section --- */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            background: radial-gradient(circle at 50% 50%, #1a1a1a 0%, #050505 100%);
+        }
+
+        #hero-canvas {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            padding: 0 20px;
+            pointer-events: none;
+        }
+
+        .hero-logo {
+            width: clamp(200px, 30vw, 300px);
+            margin-bottom: 25px;
+            filter: drop-shadow(0 0 30px rgba(198, 156, 114, 0.3));
+            animation: float 6s ease-in-out infinite;
+            pointer-events: auto;
+        }
+
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+
+        .hero-title {
+            font-family: 'Poiret One', cursive;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            letter-spacing: 12px;
+            background: var(--rose-gold);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .hero-tagline {
+            letter-spacing: 5px;
+            color: var(--gold-solid);
+            margin-bottom: 40px;
+            font-weight: 300;
+            text-transform: uppercase;
+            font-size: clamp(0.7rem, 2vw, 1rem);
+        }
+
+        .btn-gold {
+            display: inline-block;
+            padding: 16px 45px;
+            background: var(--rose-gold);
+            color: #000;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            pointer-events: auto;
+        }
+
+        .btn-gold:hover { 
+            transform: scale(1.05) translateY(-3px); 
+            box-shadow: 0 15px 40px rgba(198, 156, 114, 0.4); 
+        }
+
+        /* --- Section Styling --- */
+        section { padding: 120px 10%; }
+        .section-title {
+            font-family: 'Poiret One', cursive;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            text-align: center;
+            margin-bottom: 80px;
+            letter-spacing: 6px;
+            background: var(--rose-gold);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+        }
+
+        /* --- Services --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            padding: 60px 40px;
+            border-radius: 25px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            border-color: var(--gold-solid);
+            transform: translateY(-15px);
+            background: rgba(198, 156, 114, 0.05);
+        }
+
+        .service-card i { font-size: 3.5rem; margin-bottom: 25px; color: var(--gold-solid); }
+
+        /* --- Our Work (Specific Projects) --- */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        /* Updated Project Card for a No-Picture Setup */
+        .project-card {
+            height: 400px;
+            position: relative;
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+            padding: 30px;
+            transition: var(--transition);
+            
+            /* Elegant fallback: Deep charcoal with a hint of gold mesh */
+            background-color: #0a0a0a;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(198, 156, 114, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(198, 156, 114, 0.05) 0px, transparent 50%);
+        }
+
+        .project-card:hover {
+            border-color: var(--gold-solid);
+            transform: translateY(-10px) scale(1.02);
+            /* Shimmer effect on hover */
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(198, 156, 114, 0.25) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(228, 196, 157, 0.15) 0px, transparent 50%);
+        }
+
+        /* Optional: Add a subtle 'Glass' overlay to the text area */
+        .project-info {
+            position: relative;
+            z-index: 2;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+            padding: 15px;
+            border-radius: 12px;
+            width: 100%;
+        }
+
+        .project-card:hover {
+            border-color: var(--gold-solid);
+            transform: translateY(-10px) scale(1.02);
+        }
+
+        .project-card::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 10%, transparent 100%);
+        }
+
+        .project-info { position: relative; z-index: 2; }
+        .project-tag { color: var(--gold-solid); font-size: 0.7rem; letter-spacing: 2px; font-weight: 700; margin-bottom: 10px; display: block; }
+        .project-info h3 { font-family: 'Poiret One', cursive; font-size: 1.6rem; letter-spacing: 2px; }
+
+        /* --- Contact --- */
+        .contact-container { max-width: 700px; margin: 0 auto; background: var(--glass); padding: 50px; border-radius: 30px; border: 1px solid var(--glass-border); }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 18px;
+            margin-bottom: 25px;
+            background: rgba(0,0,0,0.3);
+            border: 1px solid var(--glass-border);
+            color: white;
+            border-radius: 12px;
+            font-family: inherit;
+        }
+        .contact-form input:focus, .contact-form textarea:focus { border-color: var(--gold-solid); outline: none; }
+
+        /* --- Footer --- */
+        footer { text-align: center; padding: 60px; border-top: 1px solid var(--glass-border); }
+        .footer-quote { font-family: 'Poiret One', cursive; color: var(--gold-solid); letter-spacing: 3px; font-size: 0.9rem; }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            section { padding: 80px 5%; }
+            .hero-title { font-size: 3rem; letter-spacing: 6px; }
+            .contact-container { padding: 30px; }
+        }
+        .hero-kinetic {
+            height: 100vh;
+            width: 100%;
+            background: #050505;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            perspective: 1000px;
+        }
+
+        .tilt-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform-style: preserve-3d;
+            transition: transform 0.1s ease-out;
+        }
+
+        .bg-outline-text {
+            position: absolute;
+            font-family: 'Poiret One', cursive;
+            font-size: 25vw;
+            font-weight: 900;
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(198, 156, 114, 0.2);
+            white-space: nowrap;
+            z-index: 1;
+            pointer-events: none;
+            transform: translateZ(-100px); /* Pushes text into the background */
+        }
+
+        .hero-main-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            transform: translateZ(50px); /* Pulls content toward the user */
+        }
+
+        .hero-center-logo {
+            width: 180px;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 30px rgba(198, 156, 114, 0.4));
+        }
+
+        .hero-title-overlay {
+            font-family: 'Poiret One', cursive;
+            font-size: clamp(3rem, 10vw, 6rem);
+            letter-spacing: 15px;
+            text-transform: uppercase;
+            background: var(--rose-gold);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-sub-tag {
+            color: var(--gold-solid);
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .btn-primary {
+            padding: 15px 35px;
+            background: var(--rose-gold);
+            color: #000;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .btn-outline {
+            padding: 15px 35px;
+            border: 1px solid var(--gold-solid);
+            color: var(--gold-solid);
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: 0.3s;
+        }
+
+        .btn-outline:hover {
+            background: rgba(198, 156, 114, 0.1);
+        }
+
+        /* Atmospheric Light Beam */
+        .light-beam {
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(198, 156, 114, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .hero-kinetic {
+            height: 100vh;
+            width: 100%;
+            background: #050505;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            perspective: 1200px; /* Increased perspective for deeper 3D feel */
+        }
+
+        .tilt-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform-style: preserve-3d;
+            transition: transform 0.2s cubic-bezier(0.2, 0, 0.2, 1);
+        }
+
+        .bg-outline-text {
+            position: absolute;
+            font-family: 'Poiret One', cursive;
+            font-size: 50vw; /* Massive size for just two letters */
+            font-weight: 900;
+            color: transparent;
+            -webkit-text-stroke: 2px rgba(198, 156, 114, 0.15);
+            z-index: 1;
+            pointer-events: none;
+            transform: translateZ(-150px); /* Pushed far back */
+            letter-spacing: -2vw;
+        }
+
+        .hero-main-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            transform: translateZ(80px); /* Pulled forward */
+        }
+
+        .hero-center-logo {
+            width: clamp(120px, 15vw, 180px);
+            margin-bottom: 10px;
+            filter: drop-shadow(0 0 30px rgba(198, 156, 114, 0.4));
+        }
+
+        .hero-title-overlay {
+            font-family: 'Poiret One', cursive;
+            font-size: clamp(4rem, 15vw, 10rem);
+            letter-spacing: 20px;
+            margin-left: 20px; /* Balancing the letter spacing */
+            background: var(--rose-gold);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+        }
+
+        .hero-sub-tag {
+            color: var(--gold-solid);
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            margin-bottom: 50px;
+            font-weight: 300;
+            opacity: 0.8;
+        }
+
+        /* Button Styles Stay Consistent */
+        .btn-primary {
+            padding: 16px 40px;
+            background: var(--rose-gold);
+            color: #000;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: 0.4s;
+        }
+
+        .btn-outline {
+            padding: 16px 40px;
+            border: 1px solid var(--gold-solid);
+            color: var(--gold-solid);
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: 0.4s;
+        }
+
+        .btn-outline:hover {
+            background: rgba(198, 156, 114, 0.1);
+            color: #fff;
+            border-color: #fff;
+        }
+
+        .light-beam {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(198, 156, 114, 0.08) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        
+        .hero-liquid {
+            height: 100vh;
+            width: 100%;
+            background: #000;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .liquid-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        /* The "Molten Gold" following the mouse */
+        .cursor-glow {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, 
+                rgba(228, 196, 157, 0.8) 0%, 
+                rgba(198, 156, 114, 0.4) 30%, 
+                transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            filter: blur(40px);
+            transition: width 0.3s, height 0.3s;
+        }
+
+        /* SVG Masking Styles */
+        .az-mask-svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 3;
+        }
+
+        .az-svg-text {
+            font-family: 'Poiret One', cursive;
+            font-size: 40vw;
+            font-weight: 900;
+            fill: black; /* This is the part that becomes transparent */
+            dominant-baseline: middle;
+        }
+
+        /* Content on top */
+        .hero-overlay-content {
+            position: absolute;
+            bottom: 15%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            text-align: center;
+            width: 100%;
+        }
+
+        .liquid-tagline {
+            color: #fff;
+            letter-spacing: 10px;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            margin-bottom: 30px;
+            opacity: 0.6;
+        }
+
+        .btn-liquid-gold {
+            padding: 15px 40px;
+            background: var(--rose-gold); /* Using your existing variable */
+            color: #000;
+            text-decoration: none;
+            border-radius: 2px; /* Sharp edges for a modern look */
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin: 10px;
+            display: inline-block;
+        }
+
+        .btn-liquid-outline {
+            padding: 15px 40px;
+            border: 1px solid #fff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 2px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin: 10px;
+            display: inline-block;
+            transition: 0.3s;
+        }
+
+        .btn-liquid-outline:hover {
+            background: #fff;
+            color: #000;
+        }
+
+        .hero-editorial {
+            height: 100vh;
+            width: 100%;
+            background: #0a0a0a;
+            display: flex;
+            align-items: center;
+            padding: 0 8%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .editorial-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            width: 100%;
+            align-items: center;
+        }
+
+        /* Left Side Styling */
+        .hero-main-title {
+            font-family: 'Poiret One', cursive;
+            font-size: clamp(6rem, 15vw, 12rem);
+            line-height: 0.9;
+            background: var(--rose-gold);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            animation: titleReveal 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold-solid);
+            opacity: 0.8;
+            margin-bottom: 40px;
+            border-left: 1px solid var(--gold-solid);
+            padding-left: 20px;
+        }
+
+        .explore-link {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        .explore-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 0%; height: 1px;
+            background: var(--gold-solid);
+            transition: 0.4s;
+        }
+
+        .explore-link:hover::after { width: 100%; }
+
+        /* Right Side Styling (3D Floating Effect) */
+        .hero-right {
+            display: flex;
+            justify-content: center;
+            perspective: 1000px;
+        }
+
+        .monogram-container {
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.1s;
+        }
+
+        .floating-logo {
+            width: 300px;
+            filter: drop-shadow(0 20px 50px rgba(0,0,0,0.5));
+            animation: floatAnim 6s ease-in-out infinite;
+        }
+
+        @keyframes floatAnim {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+        }
+
+        /* Side Strip Decoration */
+        .side-strip {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%) rotate(90deg);
+            font-size: 0.6rem;
+            letter-spacing: 5px;
+            opacity: 0.3;
+            white-space: nowrap;
+        }
+
+        @keyframes titleReveal {
+            0% { transform: translateY(100px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Responsive Mobile Layout */
+        @media (max-width: 768px) {
+            .editorial-wrapper { grid-template-columns: 1fr; text-align: center; }
+            .hero-right { order: -1; margin-bottom: 50px; }
+            .floating-logo { width: 180px; }
+            .hero-description { border-left: none; padding-left: 0; }
+        }
+
+        .hero-typo {
+            height: 100vh;
+            width: 100%;
+            background-color: #050505;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .typo-container {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            width: 100%;
+        }
+
+        .letter-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            transition: transform 0.1s ease-out;
+        }
+
+        .letter {
+            font-family: 'Poiret One', cursive;
+            font-size: clamp(8rem, 30vw, 22rem);
+            font-weight: 900;
+            line-height: 1;
+            display: inline-block;
+        }
+
+        /* The Solid 'A' */
+        .letter.solid {
+            background: var(--rose-gold); /* Using your existing gold gradient */
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+        }
+
+        /* The Outlined 'Z' */
+        .letter.outline {
+            color: transparent;
+            -webkit-text-stroke: 2px rgba(198, 156, 114, 0.4);
+        }
+
+        .hero-core {
+            margin-top: -40px; /* Pulls content up into the letters slightly */
+        }
+
+        .hero-intent {
+            color: var(--gold-solid);
+            text-transform: uppercase;
+            letter-spacing: 12px;
+            font-size: 0.8rem;
+            margin-bottom: 40px;
+            opacity: 0.8;
+        }
+
+        .hero-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .hero-btn {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 10px 0;
+            border-bottom: 1px solid transparent;
+            transition: 0.4s;
+        }
+
+        .hero-btn:hover {
+            border-bottom-color: var(--gold-solid);
+            color: var(--gold-solid);
+        }
+
+        .hero-btn.secondary {
+            opacity: 0.5;
+        }
+
+        .hero-btn.secondary:hover {
+            opacity: 1;
+        }
+
+        /* Atmospheric Background Mesh */
+        .bg-mesh {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: radial-gradient(circle at 50% 50%, rgba(198, 156, 114, 0.05) 0%, transparent 80%);
+            z-index: 1;
+        }
+
+        .hero-typo {
+            height: 100vh;
+            width: 100%;
+            background-color: #050505;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .typo-container {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column; /* Stacks letters and text vertically */
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .letter-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: clamp(10px, 5vw, 40px);
+            transition: transform 0.1s ease-out;
+        }
+
+        .letter {
+            font-family: 'Poiret One', cursive;
+            font-size: clamp(8rem, 25vw, 20rem); /* Slightly reduced max size */
+            font-weight: 900;
+            line-height: 0.8; /* Tightens the box around the letters */
+            display: inline-block;
+        }
+
+        .letter.solid {
+            background: var(--rose-gold);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .letter.outline {
+            color: transparent;
+            -webkit-text-stroke: 2px rgba(198, 156, 114, 0.4);
+        }
+
+        /* --- Fixed Overlap Section --- */
+        .hero-content-fixed {
+            margin-top: 40px; /* Pushes the tagline away from the letters */
+            text-align: center;
+            position: relative;
+            z-index: 11;
+        }
+
+        .hero-intent {
+            color: var(--gold-solid);
+            text-transform: uppercase;
+            letter-spacing: 12px;
+            font-size: clamp(0.6rem, 2vw, 0.8rem);
+            margin-bottom: 30px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .hero-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .hero-btn {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 10px 0;
+            border-bottom: 1px solid transparent;
+            transition: 0.4s;
+        }
+
+        .hero-btn:hover {
+            color: var(--gold-solid);
+            border-bottom-color: var(--gold-solid);
+        }
+
+        .hero-btn.secondary {
+            opacity: 0.5;
+        }
+
+        /* Background mesh stays at bottom */
+        .bg-mesh {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: radial-gradient(circle at 50% 50%, rgba(198, 156, 114, 0.05) 0%, transparent 80%);
+            z-index: 1;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: center; /* Centers the container */
+            z-index: 1000;
+            background: rgba(5, 5, 5, 0.85);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .nav-container {
+            width: 100%;
+            max-width: 1400px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            gap: 12px; /* Space between logo image and 'AZ' text */
+        }
+
+        .logo-img {
+            height: 40px; /* Adjust height as needed */
+            width: auto;
+            filter: drop-shadow(0 0 10px rgba(198, 156, 114, 0.3));
+            transition: transform 0.3s ease;
+        }
+
+        .nav-logo:hover .logo-img {
+            transform: scale(1.1);
+        }
+
+        .nav-logo-text {
+            font-family: 'Poiret One', cursive;
+            font-size: 1.5rem;
+            letter-spacing: 3px;
+            font-weight: bold;
+            background: var(--rose-gold);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.7;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 1;
+            color: var(--gold-solid);
+        }
+
+        /* Mobile Fix */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* Consider adding a hamburger menu for mobile later */
+            }
+        }
+
+        #why-us {
+            padding: 120px 10%;
+            background-color: #050505;
+        }
+
+        .why-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .why-item {
+            padding: 50px 30px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(198, 156, 114, 0.1);
+            border-radius: 20px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .why-item:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold-solid);
+            background: rgba(198, 156, 114, 0.03);
+        }
+
+        .why-icon {
+            font-size: 2.5rem;
+            color: var(--gold-solid);
+            margin-bottom: 25px;
+            filter: drop-shadow(0 0 10px rgba(198, 156, 114, 0.3));
+        }
+
+        .why-item h3 {
+            font-family: 'Poiret One', cursive;
+            font-size: 1.8rem;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .why-item p {
+            font-size: 0.9rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 300;
+        }
+
+        /* Subtle corner decoration on hover */
+        .why-item::before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0;
+            width: 0; height: 0;
+            border-top: 2px solid var(--gold-solid);
+            border-right: 2px solid var(--gold-solid);
+            transition: 0.4s;
+            opacity: 0;
+        }
+
+        .why-item:hover::before {
+            width: 40px;
+            height: 40px;
+            opacity: 1;
+        }
+
+        /* Add this to your existing <style> tag or update the .why-icon section */
+        .why-icon {
+            font-size: 2.5rem;
+            color: var(--gold-solid);
+            margin-bottom: 25px;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            filter: drop-shadow(0 0 8px rgba(198, 156, 114, 0.2));
+        }
+
+        .why-item:hover .why-icon {
+            transform: scale(1.2) rotate(5deg);
+            filter: drop-shadow(0 0 15px rgba(198, 156, 114, 0.5));
+        }
+
+        #portfolio-gallery {
+            padding: 100px 5%;
+            background-color: #050505;
+        }
+
+        .gallery-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Modern Grid Layout */
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-auto-rows: 300px;
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .work-card {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            background: #111;
+        }
+
+        /* Creates a 'Tall' card for visual variety */
+        .work-card.tall {
+            grid-row: span 2;
+        }
+
+        .work-img-wrapper {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .portfolio-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1.2s cubic-bezier(0.2, 1, 0.3, 1);
+        }
+
+        /* The Hover Overlay */
+        .work-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%);
+            display: flex;
+            align-items: flex-end;
+            padding: 40px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .overlay-text {
+            transform: translateY(20px);
+            transition: transform 0.5s ease;
+        }
+
+        .work-cat {
+            color: var(--gold-solid);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.7rem;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .overlay-text h3 {
+            font-family: 'Poiret One', cursive;
+            font-size: 2rem;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .overlay-text p {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 300;
+        }
+
+        /* Hover Effects */
+        .work-card:hover .portfolio-img {
+            transform: scale(1.1); /* Slow zoom effect */
+        }
+
+        .work-card:hover .work-overlay {
+            opacity: 1;
+        }
+
+        .work-card:hover .overlay-text {
+            transform: translateY(0);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .work-grid {
+                grid-auto-rows: 250px;
+            }
+            .work-card.tall {
+                grid-row: span 1;
+            }
+        }
+
+        /* 1. Change the grid to allow flexible heights */
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            /* Remove grid-auto-rows to let images dictate the height */
+            gap: 30px; 
+            margin-top: 50px;
+            align-items: start; /* Ensures items don't stretch vertically */
+        }
+
+        /* 2. Fix the image behavior */
+        .portfolio-img {
+            width: 100%;
+            height: auto; /* Changed from 100% to auto */
+            display: block;
+            object-fit: contain; /* This ensures the full image is visible */
+            transition: transform 1.2s cubic-bezier(0.2, 1, 0.3, 1);
+        }
+
+        /* 3. Adjust the wrapper to fit the image shape */
+        .work-img-wrapper {
+            width: 100%;
+            height: auto;
+            position: relative;
+            background: #111; /* Background color for any small gaps */
+        }
+
+        /* 4. Remove the 'tall' class restriction */
+        .work-card.tall {
+            grid-row: auto; /* Since images have different heights, we don't need to force this */
+        }
+
+        /* Mobile View Fix */
+        @media (max-width: 768px) {
+            .work-grid {
+                display: flex; /* Switch from Grid to Flex for better flow control */
+                flex-direction: column;
+                gap: 40px; /* Space between each poster */
+                height: auto !important; /* Forces container to grow */
+            }
+
+            .work-card {
+                height: auto !important; /* Removes any fixed height constraints */
+                width: 100%;
+            }
+
+            .work-img-wrapper {
+                height: auto !important;
+            }
+
+            .portfolio-img {
+                position: relative; /* Ensures it stays in the document flow */
+                height: auto !important;
+                width: 100%;
+                object-fit: contain;
+            }
+
+            /* Fix for the overlapping 'Let's Connect' section */
+            #portfolio-gallery {
+                padding-bottom: 80px; /* Adds breathing room before the next section */
+                overflow: visible; /* Ensures content isn't clipped or layered oddly */
+            }
+        }
+
+        /* 1. Ensure the section can grow with its content */
+        #portfolio-gallery {
+            padding: 100px 5%;
+            background-color: #050505;
+            position: relative;
+            display: block; /* Ensures it stays in the document flow */
+            height: auto;
+            min-height: min-content;
+        }
+
+        /* 2. Fix the grid track logic */
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            /* CHANGE: This ensures the row height is determined by the tallest item */
+            grid-auto-rows: min-content; 
+            gap: 30px;
+            margin-top: 50px;
+            /* CHANGE: This prevents the 'tall' item from overlapping the bottom */
+            align-items: start; 
+        }
+
+        /* 3. Handle the 'tall' item specifically for laptop */
+        .work-card.tall {
+            /* If you want it to span rows, the container must know to grow */
+            grid-row: span 2;
+            height: 100%;
+        }
+
+        /* 4. Ensure the image wrapper doesn't have a fixed height */
+        .work-img-wrapper {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .portfolio-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+        }
+
+        /* 5. The "Safety Net" for the next section */
+        #contact { /* Or whatever your 'Let's Connect' ID is */
+            clear: both;
+            position: relative;
+            z-index: 20;
+            margin-top: 50px; /* Adds a gap so they never touch */
+        }
+
+        /* 1. Ensure the card handles its internal space */
+        .work-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Centers the image vertically if the container is taller */
+            align-items: center;
+            background-color: #050505; /* Matches your section background to hide gaps */
+            height: 100%;
+        }
+
+        /* 2. Make the wrapper tight around the image */
+        .work-img-wrapper {
+            width: 100%;
+            height: auto; /* Let the wrapper follow the image height */
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 3. Force the image to span the width while maintaining its full shape */
+        .portfolio-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain; /* Keeps the full poster visible */
+        }
+
+        /* 4. Ensure the overlay matches the image size, not the container size */
+        .work-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Gradient starts from the bottom of the IMAGE */
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%);
+        }
+
+        #contact {
+            padding: 100px 10%;
+            background-color: #050505;
+            text-align: center;
+        }
+
+        .contact-subtitle {
+            color: rgba(255, 255, 255, 0.5);
+            letter-spacing: 2px;
+            margin-bottom: 50px;
+            font-weight: 300;
+        }
+
+        .contact-methods {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .contact-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #fff;
+            transition: all 0.4s ease;
+            width: 120px;
+        }
+
+        .contact-card i {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: rgba(255, 255, 255, 0.8);
+            transition: all 0.4s ease;
+        }
+
+        .contact-card span {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            opacity: 0.6;
+        }
+
+        /* Hover Effects with Brand Colors */
+        .contact-card:hover i {
+            transform: translateY(-10px);
+        }
+
+        /* Specific Hover Glows */
+        .contact-card:hover .fa-whatsapp {
+            color: #25D366;
+            filter: drop-shadow(0 0 15px rgba(37, 211, 102, 0.4));
+        }
+
+        .contact-card:hover .fa-instagram {
+            color: #E1306C;
+            filter: drop-shadow(0 0 15px rgba(225, 48, 108, 0.4));
+        }
+
+        .contact-card:hover .fa-envelope {
+            color: var(--gold-solid);
+            filter: drop-shadow(0 0 15px rgba(198, 156, 114, 0.4));
+        }
+
+        .contact-card:hover span {
+            opacity: 1;
+            color: #fff;
+        }
+
+        /* Mobile Adjustment */
+        @media (max-width: 480px) {
+            .contact-methods { gap: 20px; }
+            .contact-card { width: 90px; }
+            .contact-card i { font-size: 2rem; }
+        }
+
+        #testimonials {
+            padding: 120px 10%;
+            background-color: #050505;
+        }
+
+        .testi-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .testi-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(198, 156, 114, 0.1);
+            padding: 40px;
+            border-radius: 20px;
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .testi-card:hover {
+            background: rgba(198, 156, 114, 0.03);
+            border-color: var(--gold-solid);
+            transform: translateY(-5px);
+        }
+
+        .quote-icon {
+            color: var(--gold-solid);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            opacity: 0.6;
+        }
+
+        .testi-text {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.8);
+            font-style: italic;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .testi-author {
+            border-top: 1px solid rgba(198, 156, 114, 0.2);
+            padding-top: 20px;
+        }
+
+        .author-name {
+            display: block;
+            font-family: 'Poiret One', cursive;
+            font-size: 1.2rem;
+            color: var(--gold-solid);
+            letter-spacing: 1px;
+        }
+
+        .author-role {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: rgba(255, 255, 255, 0.4);
+            margin-top: 5px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <!-- Logo Section -->
+            <a href="#home" class="nav-logo">
+                <img src="./pictures/AZ_logo.png" alt="AZ Logo" class="logo-img">
+                <span class="nav-logo-text">AZ</span>
+            </a>
+
+            <!-- Navigation Links -->
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#projects">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- --- AZ Editorial Hero --- -->
+    <!-- --- AZ Typography Hero --- -->
+    <!-- --- AZ Typography Hero (Fixed Layout) --- -->
+    <section id="home" class="hero-typo">
+        <div class="typo-container">
+            
+            <!-- Top: Interactive Letter Group -->
+            <div class="letter-wrapper" id="move-box">
+                <span class="letter solid">A</span>
+                <span class="letter outline">Z</span>
+            </div>
+            
+            <!-- Bottom: Center Content (Moved lower to prevent overlap) -->
+            <div class="hero-content-fixed">
+                <p class="hero-intent">Design with Faith</p>
+                <div class="hero-links">
+                    <a href="#projects" class="hero-btn">View Impact</a>
+                    <a href="#contact" class="hero-btn secondary">Contact</a>
+                </div>
+            </div>
+            
+        </div>
+        
+        <div class="bg-mesh"></div>
+    </section>
+
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">Our Vision</h2>
+        <div style="text-align: center; max-width: 850px; margin: 0 auto;">
+            <p style="font-size: 1.2rem; font-weight: 300; margin-bottom: 30px; opacity: 0.9;">
+               At AZ, our vision is to become a leading creative digital studio delivering innovative graphic design, UI/UX design, and web development solutions that empower brands to grow in the digital world. We strive to transform ideas into visually stunning and user-friendly experiences that drive engagement, build strong brand identity, and increase business success.
+
+We aim to support startups, small businesses, and growing brands by providing modern, affordable, and high-quality design services tailored to their unique needs. Our goal is to stay ahead of design trends, technology, and user behavior to create impactful digital solutions that stand out in a competitive market.
+
+Through creativity, strategy, and innovation, AZ envisions building long-term relationships with clients while helping them establish a powerful online presence and achieve sustainable growth.
+            </p>
+            <p class="footer-quote">Creativity with purpose, Design with faith. ♡</p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <h2 class="section-title">Our Craft</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-code"></i>
+                <h3>Web Development</h3>
+                <p>Specializing in 3D-integrated, high-performance web solutions built with HTML, CSS, and JS.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-palette"></i>
+                <h3>Graphic Design</h3>
+                <p>Visual storytelling that captures the heartbeat of your brand and resonates with your audience.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-wand-magic-sparkles"></i>
+                <h3>UI/UX Design</h3>
+                <p>Crafting intuitive, beautiful journeys that transform users into loyal believers in your brand.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <!-- --- Our Impact Section (Sleek List Design) --- -->
+    <section id="projects">
+        <div class="impact-container">
+            <div class="impact-header">
+                <span class="sub-title">Selected Projects</span>
+                <h2 class="section-title-left">Our Impact</h2>
+            </div>
+
+            <div class="project-list">
+
+                <!-- Project 1 -->
+                <div class="project-row">
+                    <div class="project-number">1</div>
+                    <div class="project-main">
+                        <h3>S3 Interiors</h3>
+                        <span class="project-category">Graphic Design & Social Media</span>
+                    </div>
+                    <div class="project-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-row">
+                    <div class="project-number">2</div>
+                    <div class="project-main">
+                        <h3>Hearts and Beans</h3>
+                        <span class="project-category">Graphic Design</span>
+                    </div>
+                    <div class="project-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-row">
+                    <div class="project-number">3</div>
+                    <div class="project-main">
+                        <h3>Trendy Memorie</h3>
+                        <span class="project-category">Logo Creation</span>
+                    </div>
+                    <div class="project-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .impact-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .impact-header {
+            margin-bottom: 60px;
+        }
+
+        .sub-title {
+            color: var(--gold-solid);
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            font-size: 0.75rem;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .section-title-left {
+            font-family: 'Poiret One', cursive;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            background: var(--rose-gold);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+        }
+
+        /* List Logic */
+        .project-list {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .project-row {
+            display: flex;
+            align-items: center;
+            padding: 40px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .project-number {
+            font-family: 'Poiret One', cursive;
+            font-size: 1rem;
+            color: var(--gold-solid);
+            width: 80px;
+            opacity: 0.6;
+        }
+
+        .project-main {
+            flex-grow: 1;
+        }
+
+        .project-main h3 {
+            font-family: 'Poiret One', cursive;
+            font-size: clamp(1.5rem, 4vw, 2.8rem);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            transition: transform 0.4s ease;
+        }
+
+        .project-category {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.5;
+            font-weight: 300;
+        }
+
+        .project-arrow {
+            font-size: 1.5rem;
+            color: var(--gold-solid);
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: all 0.4s ease;
+        }
+
+        /* Hover States */
+        .project-row:hover {
+            padding-left: 30px;
+            background: linear-gradient(90deg, rgba(198, 156, 114, 0.05) 0%, transparent 100%);
+        }
+
+        .project-row:hover .project-main h3 {
+            color: var(--gold-solid);
+            transform: translateX(10px);
+        }
+
+        .project-row:hover .project-arrow {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .project-row:hover .project-number {
+            opacity: 1;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .project-row { padding: 30px 0; }
+            .project-number { width: 50px; }
+            .project-arrow { display: none; }
+        }
+    </style>
+
+    <!-- --- Why Choose Us Section --- -->
+    <section id="why-us">
+        <div class="why-container">
+            <h2 class="section-title">Why AZ?</h2>
+            
+            <div class="why-grid">
+                <!-- Reason 1 -->
+                <div class="why-item">
+                    <div class="why-icon"><i class="fas fa-gem"></i></div>
+                    <h3>Precision Craft</h3>
+                    <p>At AZ, we craft high-performance websites and digital experiences that blend custom web design, UI/UX design, and immersive 3D visuals. Our focus is on responsive web development, fast-loading performance, and SEO-friendly architecture to ensure seamless user experience and higher engagement.
+
+We deliver visually stunning, conversion-focused websites that help brands grow, stand out, and succeed in the digital space.</p>
+                </div>
+
+                <!-- Reason 2: Faith-Driven Design (Updated with Icon) -->
+                <div class="why-item">
+                    <div class="why-icon">
+                        <i class="fas fa-dove"></i> 
+                    </div>
+                    <h3>Faith-Driven Design</h3>
+                    <p>At AZ, our approach to graphic design, UI/UX design, and web development is rooted in trust, integrity, and purpose. We deliver user-focused, brand-driven digital solutions that align with your vision while maintaining the highest standards of quality and professionalism.
+
+Every project is handled with care to create authentic, impactful, and SEO-friendly digital experiences that build credibility and long-term brand value.</p>
+                </div>
+
+                <!-- Reason 3 -->
+                <div class="why-item">
+                    <div class="why-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Impactful Growth</h3>
+                    <p>At AZ, we create result-driven UI/UX design, graphic design, and web development solutions that build strong brand connections and drive measurable growth. Our designs combine visual storytelling, user-centered design, and conversion-focused strategies to boost engagement and business performance.
+
+We deliver SEO-optimized, high-impact digital experiences that help your brand attract, connect, and grow in a competitive market.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- Image-Based Work Gallery --- -->
+    <section id="portfolio-gallery">
+        <div class="gallery-container">
+            <h2 class="section-title">Selected Works</h2>
+            
+            <div class="work-grid">
+                <!-- Project 1 -->
+                <div class="work-card">
+                    <div class="work-img-wrapper">
+                        <img src="./pictures/Black-white-minimal-design-poster.png" alt="Poster for Clothing Brand" class="portfolio-img">
+                        <div class="work-overlay">
+                            <div class="overlay-text">
+                                <span class="work-cat">Clothing Brand Poster</span>
+                                <h3>Minimal Black and white Theme</h3>
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="work-card">
+                    <div class="work-img-wrapper">
+                        <img src="./pictures/Pavazhamalli-saree-design-poster.png" alt="Saree Clothing Brand Posters" class="portfolio-img">
+                        <div class="work-overlay">
+                            <div class="overlay-text">
+                                <span class="work-cat">Traditional Clothing Brand Poster</span>
+                                <h3>Fusion Of Tradition With Trend</h3>
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="work-card">
+                    <div class="work-img-wrapper">
+                        <img src="./pictures/Gym-promotion-poster.png" alt="Gym Promotion Poster" class="portfolio-img">
+                        <div class="work-overlay">
+                            <div class="overlay-text">
+                                <span class="work-cat">GYM Poster</span>
+                                <h3>Catchy Unisex Gym Poster</h3>
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- AZ Testimonials Section --- -->
+    <section id="testimonials">
+        <div class="testi-container">
+            <h2 class="section-title">Client Voices</h2>
+            
+            <div class="testi-grid">
+                <!-- Testimonial 1 -->
+                <div class="testi-card">
+                    <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                    <p class="testi-text">"Absolutely I love my new logo.... captured the vibe of my small business perfectly... thankyou so much for creating this logo to me...."</p>
+                    <div class="testi-author">
+                        <span class="author-name">Hana Fathima</span>
+                        <span class="author-role">Founder, Trendy Memorie</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <!-- --- AZ Contact Section --- -->
+    <section id="contact">
+        <div class="contact-container">
+            <h2 class="section-title">Let's Connect</h2>
+            <p class="contact-subtitle">Purposeful design starts with a conversation.</p>
+
+            <div class="contact-methods">
+                <!-- WhatsApp -->
+                <a href="https://wa.me/9944130060" target="_blank" class="contact-card">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>WhatsApp</span>
+                </a>
+
+                <!-- Instagram -->
+                <a href="https://instagram.com/az.freelancing" target="_blank" class="contact-card">
+                    <i class="fab fa-instagram"></i>
+                    <span>Instagram</span>
+                </a>
+
+                <!-- Gmail -->
+                <a href="mailto:alfidhahaja@gmail.com" class="contact-card">
+                    <i class="far fa-envelope"></i>
+                    <span>Gmail</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p style="letter-spacing: 3px; font-weight: bold; margin-bottom: 10px;">AZ</p>
+        <p class="footer-quote">Design with Faith. Impact with Love.</p>
+    </footer>
+
+    <script>
+        // --- 3D Background Canvas Interaction ---
+        const canvas = document.getElementById('hero-canvas');
+        const ctx = canvas.getContext('2d');
+
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        // Star configuration
+        const stars = Array(150).fill().map(() => ({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            size: Math.random() * 1.5,
+            baseSpeed: Math.random() * 0.5 + 0.2,
+            speed: 0
+        }));
+
+        let mouseX = 0;
+        let mouseY = 0;
+
+        window.addEventListener('mousemove', (e) => {
+            mouseX = (e.clientX - canvas.width / 2) * 0.02;
+            mouseY = (e.clientY - canvas.height / 2) * 0.02;
+        });
+
+        function animate() {
+            ctx.fillStyle = '#050505';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            stars.forEach(star => {
+                ctx.fillStyle = '#c69c72';
+                ctx.beginPath();
+                ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+                ctx.fill();
+                
+                // Parallax effect + downward drift
+                star.y += star.baseSpeed;
+                star.x += mouseX * 0.1;
+                star.y += mouseY * 0.1;
+
+                if (star.y > canvas.height) star.y = 0;
+                if (star.y < 0) star.y = canvas.height;
+                if (star.x > canvas.width) star.x = 0;
+                if (star.x < 0) star.x = canvas.width;
+            });
+            requestAnimationFrame(animate);
+        }
+        animate();
+
+        // --- Intersection Observer for Fade-In animations ---
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = "1";
+                    entry.target.style.transform = "translateY(0)";
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.service-card, .project-card, .contact-container').forEach(el => {
+            el.style.opacity = "0";
+            el.style.transform = "translateY(30px)";
+            el.style.transition = "all 0.8s ease-out";
+            observer.observe(el);
+        });
+
+        const tiltBox = document.getElementById('tilt-box');
+
+        window.addEventListener('mousemove', (e) => {
+            // Calculate rotation based on mouse position
+            const xAxis = (window.innerWidth / 2 - e.clientX) / 30;
+            const yAxis = (window.innerHeight / 2 - e.clientY) / 30;
+            
+            tiltBox.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+        });
+
+        // Reset position when mouse leaves window
+        window.addEventListener('mouseleave', () => {
+            tiltBox.style.transform = `rotateY(0deg) rotateX(0deg)`;
+        });
+
+        const monogram = document.getElementById('parallax-monogram');
+
+        window.addEventListener('mousemove', (e) => {
+            const moveX = (window.innerWidth / 2 - e.clientX) / 25;
+            const moveY = (window.innerHeight / 2 - e.clientY) / 25;
+
+            monogram.style.transform = `rotateY(${moveX}deg) rotateX(${-moveY}deg)`;
+        });
+        
+        const moveBox = document.getElementById('move-box');
+
+        window.addEventListener('mousemove', (e) => {
+            // Keeps the movement subtle so it doesn't crash into other elements
+            const x = (window.innerWidth / 2 - e.clientX) / 50;
+            const y = (window.innerHeight / 2 - e.clientY) / 50;
+            
+            moveBox.style.transform = `translateX(${x}px) translateY(${y}px) rotateX(${-y/2}deg) rotateY(${x/2}deg)`;
+        });
+
+    </script>
+</body>
+</html>
